@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sbs.example.jspCommunity.container.Container;
-import com.sbs.example.jspCommunity.dto.Member;
 import com.sbs.example.mysqlutil.MysqlUtil;
 import com.sbs.example.mysqlutil.SecSql;
 
@@ -25,8 +23,10 @@ public class MemberListServlet extends HttpServlet {
 
 		MysqlUtil.setDBInfo("127.0.0.1", "sbsst", "sbs123414", "jspCommunity");
 
-		List<Member> members = Container.memberService.getForPrintMembers();
+		List<Map<String, Object>> memberMapList = MysqlUtil
 				.selectRows(new SecSql().append("SELECT * FROM member ORDER BY id DESC"));
+//		List<Member> members = Container.memberService.getForPrintMembers();
+//				.selectRows(new SecSql().append("SELECT * FROM member ORDER BY id DESC"));
 
 		req.setAttribute("memberMapList", memberMapList);
 

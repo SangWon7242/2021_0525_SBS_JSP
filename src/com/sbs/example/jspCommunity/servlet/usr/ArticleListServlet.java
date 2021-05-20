@@ -38,6 +38,7 @@ public class ArticleListServlet extends HttpServlet {
 		MysqlUtil.closeConnection();
 		
 		req.setAttribute("articles", articles);
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/jsp/usr/article/list.jsp");
 		rd.forward(req, resp);
 		
