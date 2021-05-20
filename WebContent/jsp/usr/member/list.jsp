@@ -3,7 +3,7 @@
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.List"%>
 <%
-	List<Map<String, Object>> memberMapList = (List<Map<String, Object>>) request.getAttribute("memberMapList");
+List<Map<String, Object>> memberMapList = (List<Map<String, Object>>) request.getAttribute("memberMapList");
 %>
 <!doctype html>
 <html lang="ko">
@@ -14,7 +14,7 @@
 <body>
 	<h1>회원 리스트</h1>
 	<%
-		for (Map<String, Object> memberMap : memberMapList) {
+	for (Map<String, Object> memberMap : memberMapList) {
 	%>
 	<div>
 		번호:
@@ -26,7 +26,7 @@
 		<hr />
 	</div>
 	<%
-		}
+	}
 	%>
 </body>
 </html>
