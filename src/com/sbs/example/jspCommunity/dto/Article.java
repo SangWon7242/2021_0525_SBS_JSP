@@ -9,7 +9,7 @@ public class Article {
 	public LocalDateTime updateDate;
 	public String title;
 	public String body;
-	public int memeberId;
+	public String memeberId;
 	public int boardId;
 	public int hitsCount;
 	
@@ -23,7 +23,7 @@ public class Article {
 		this.updateDate = (LocalDateTime)map.get("updateDate");
 		this.title = (String)map.get("title");
 		this.body = (String)map.get("body");
-		this.memeberId = (int)map.get("memeberId");
+		this.memeberId = (String)map.get("memeberId");
 		this.boardId = (int)map.get("boardId");
 		this.hitsCount = (int)map.get("hitsCount");
 		

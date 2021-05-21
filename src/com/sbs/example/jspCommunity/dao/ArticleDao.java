@@ -15,7 +15,7 @@ public class ArticleDao {
 		
 		SecSql sql = new SecSql();
 		
-		sql.append("SELET A.*");
+		sql.append("SELECT A.*");
 		sql.append(", M.name AS extra__writer");
 		sql.append(", B.name AS extra__boardName");
 		sql.append(", B.code AS extra__boardCode");

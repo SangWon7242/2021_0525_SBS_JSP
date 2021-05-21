@@ -12,7 +12,7 @@ public class Member {
 	public String name;
 	public String nickname;
 	public String email;
-	public int authLevel;
+	public int authLevel; // 인증코드
 	
 	public String extra__writer;
 	public String extra__boardName;
@@ -25,6 +25,7 @@ public class Member {
 		this.loginId = (String)map.get("loginId");
 		this.loginPw = (String)map.get("loginPw");
 		this.name = (String)map.get("name");
+		this.nickname = (String)map.get("nickname");
 		this.email = (String)map.get("email");
 		this.authLevel = (int)map.get("authLevel");
 	}
