@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sbs.example.jspCommunity.container.Container;
+import com.sbs.example.jspCommunity.container.usr.ArticleController;
 import com.sbs.example.jspCommunity.servlet.controller.usr.MemberController;
 import com.sbs.example.mysqlutil.MysqlUtil;
 
@@ -29,8 +30,8 @@ public class DispatcherServlet extends HttpServlet {
 			return;
 		}
 		
-		String controllerName = requestUriBits[3];
-		String actionMethodName = requestUriBits[4];
+		String controllerName = requestUriBits[3]; // 네번째
+		String actionMethodName = requestUriBits[4]; // 다섯번째
 		// member냐 article이냐, showlist냐 showdetail이냐
 		
 		String jspPath = null;
@@ -43,12 +44,19 @@ public class DispatcherServlet extends HttpServlet {
 			if(actionMethodName.equals("list")) {
 				jspPath = memberController.showList(req, resp);
 			}
+		} else if(controllerName.equals("aritlce")) {
+			ArticleController articleController = Container.articleController;
+			
+			if(actionMethodName.equals("list")) {
+				jspPath = articleController.showList(req, resp);
+			}	
+			
 		}
 		
 		MysqlUtil.closeConnection();
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/jsp/" + jspPath + ".jsp");
-		rd.forward(req, resp);
+		rd.forward(req, resp); // JSP 파일에 forward
 		
 		
 	}
