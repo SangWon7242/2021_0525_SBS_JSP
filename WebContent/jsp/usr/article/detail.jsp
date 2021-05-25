@@ -34,5 +34,8 @@
 		<%=article.body%>
 		<hr />
 	</div>
+	<div>
+		<a href="list/boardId=<%=article.boardId%>">리스트로 이동</a>
+	</div>
 </body>
 </html>

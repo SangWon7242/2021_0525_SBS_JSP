@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.sbs.example.jspCommunity.dto.Article;
+import com.sbs.example.jspCommunity.dto.Board;
 import com.sbs.example.mysqlutil.MysqlUtil;
 import com.sbs.example.mysqlutil.SecSql;
 
@@ -61,6 +62,21 @@ public class ArticleDao {
 		} // 원하는 id 번호가 없다면 null 반환
 		
 		return new Article(map); // 그렇지 않으면 map에 담긴 id 리턴
+	}
+
+	public Board getBoardById(int id) {
+		SecSql sql = new SecSql();
+		sql.append("SELECT B.*");
+		sql.append("FROM board AS B");
+		sql.append("WHERE B.id = ?", id);
+		
+		Map<String, Object> map = MysqlUtil.selectRow(sql);
+		
+		if(map.isEmpty()) {
+			return null;
+		}
+		
+		return new Board(map);
 	}
 
 }
